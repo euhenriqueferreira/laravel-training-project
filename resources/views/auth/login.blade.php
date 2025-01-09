@@ -1,7 +1,7 @@
 <x-layouts.guest>
 
     @if(session('errorMessage'))
-        <p>{{ session('errorMessage') }}</p>
+        <a href="#">{{ session('errorMessage') }}</a>
     @endif
 
     <form action="{{ route('login') }}" method="post">

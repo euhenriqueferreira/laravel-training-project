@@ -17,9 +17,13 @@ class LoginController
     // Attempt to login
     public function attemptLogin(LoginRequest $request){
         if(Auth::attempt($request->validated())){
-            return to_route('/');
+            return redirect('/');
         }
 
-        return back()->with('errorMessage', 'Invalid credentials');
+        session()->put('emailAttempted', $request->email);
+
+        return back()->with('errorMessage', 'Invalid credentials! Do you want to create an account with this email?');
     }
+
+
 }

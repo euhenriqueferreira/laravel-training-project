@@ -58,12 +58,20 @@ test('the password should have at least one special character', function(){
         ->assertSessionHasErrors('password');
 });
 
-
 test('the email and password should be validated on the database', function() {
     $user = User::factory()->create();
 
     post(route('login'), ['email' => $user->email, 'password' => $user->password])
         ->assertRedirect('/');
 });
+
+test("if the data do not be validated, should be suggested to create an account", function(){
+    User::factory()->create();
+
+    post(route('login'), ['email' => 'mdada@email.com', 'password' => 'password*'])
+        ->assertRedirect();
+});
+
+
 
 
