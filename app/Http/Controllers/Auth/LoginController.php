@@ -17,7 +17,7 @@ class LoginController
     // Attempt to login
     public function attemptLogin(LoginRequest $request){
         if(Auth::attempt($request->validated())){
-            return redirect('/');
+            return to_route('dashboard');
         }
 
         session()->put('emailAttempted', $request->email);

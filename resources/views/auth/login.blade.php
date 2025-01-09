@@ -24,6 +24,9 @@
 
                 <button type="submit" class="bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition">Send</button>
             </form>
+
+            <a class="block mt-2 w-fit bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition" href="{{ route('social.redirect', ['driver' => 'google']) }}">Login com o Google</a>
+            <a class="block mt-2 w-fit bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition" href="{{ route('social.redirect', ['driver' => 'github']) }}">Login com o Github</a>
         </div>
     </div>
     
