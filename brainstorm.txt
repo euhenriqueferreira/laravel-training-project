@@ -1,0 +1,26 @@
+# My Brainstorm
+
+Login com e-mail e senha
+- Usuario digita e confirma
+- Post das informações do formulario
+- Validação do formato do e-mail e senha
+- Validação do e-mail no banco (verificar se um usuário com esse e-mail já existe)
+    - Se o e-mail for validado no banco 
+        Verificar se a senha digitada bate com a senha cadastrada do usuário no banco
+            - Se a senha bater
+                Login
+            - else
+                back
+    - else
+        Mostrar botão de "Cannot find an account with this e-mail, do you want to create an account?", que 
+        deve passar o e-mail digitado para auto-preencher no register caso o usuário clicar no link.
+
+
+
+
+
+Dashboard
+- Se o usuário não estiver autenticado, redirecione para Login
+
+Login
+- Se o usuário estiver autenticado e tentar acessar login, redirecione para dashboard
