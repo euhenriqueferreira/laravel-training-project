@@ -4,7 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Middleware\GuestMiddleware;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -36,6 +38,25 @@ Route::get('auth/{driver}/callback', function($driver){
 });
 
 #endregion
+
+#region Forgot Password
+Route::get('/forgot-password', function(){
+    return view('auth.forgot-password');
+})->middleware(GuestMiddleware::class)->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+ 
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+ 
+    return $status === Password::ResetLinkSent
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+#endregion
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
