@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SocialAuthenticationController;
+use App\Http\Middleware\AuthMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,10 +47,11 @@ Route::middleware(GuestMiddleware::class)->group(function (){
     #endregion
 });
 
+Route::middleware(AuthMiddleware::class)->group(function (){
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    Route::get('/logout', LogoutController::class)->name('logout');
+});
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::get('/logout', LogoutController::class)->name('logout');
