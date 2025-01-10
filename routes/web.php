@@ -1,61 +1,51 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Middleware\GuestMiddleware;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\GuestMiddleware;
+use Illuminate\Support\Facades\Password;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\SocialAuthenticationController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-#region Authentication
-Route::get('/login', [LoginController::class, 'index'])->middleware(GuestMiddleware::class)->name('login');
-Route::post('/login', [LoginController::class, 'attemptLogin']);
+Route::middleware(GuestMiddleware::class)->group(function (){
 
-Route::get('auth/{driver}/redirect', function($driver){
-    return Socialite::driver($driver)->redirect();
-})->name('social.redirect');
+    #region Authentication
+    // Route that calls the login view
+    Route::get('/login', [LoginController::class, 'index'])->middleware(GuestMiddleware::class)->name('login');
+    // Route to login with email and password
+    Route::post('/login', [LoginController::class, 'attemptLogin']);
 
-Route::get('auth/{driver}/callback', function($driver){
-    $socialUser = Socialite::driver($driver)->user();
+    // Route for redirect to OAuth2 provider
+    Route::get('auth/{driver}/redirect', [SocialAuthenticationController::class, 'redirect'])->name('social.redirect');
+    // Route for callback from OAuth2 provider
+    Route::get('auth/{driver}/callback', [SocialAuthenticationController::class, 'attempLoginSocialUser']);
+    #endregion
 
-    $user = User::query()->where('email', '=', $socialUser->email)->firstOrCreate([
-        'email' => $socialUser->email,
-    ],[
-        'name' => $socialUser->name,
-        'password' =>Str::random(20)
-    ]);
-
-    Auth::login($user);
-
-    return to_route('dashboard');
+    #region Reset Password
+    // Route that calls the view to enter the email to send the password reset link
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'view'])->name('password.request');
+    // Route that sends the password reset link
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendPasswordResetLink'])->name('password.email');
+    // Route that calls the view to enter the new password
+    Route::get('/reset-password/{token}', [ResetPasswordController::class, 'view'])->name('password.reset');
+    // Route that updates the password
+    Route::post('/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
+    #endregion
 });
 
-#endregion
-
-#region Forgot Password
-Route::get('/forgot-password', function(){
-    return view('auth.forgot-password');
-})->middleware(GuestMiddleware::class)->name('password.request');
-
-Route::post('/forgot-password', function (Request $request) {
-    $request->validate(['email' => 'required|email']);
- 
-    $status = Password::sendResetLink(
-        $request->only('email')
-    );
- 
-    return $status === Password::ResetLinkSent
-                ? back()->with(['status' => __($status)])
-                : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.email');
-#endregion
 
 
 Route::get('/dashboard', function () {
