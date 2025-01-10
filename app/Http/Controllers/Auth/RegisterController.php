@@ -6,6 +6,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RegisterController
 {
@@ -16,10 +17,22 @@ class RegisterController
     }
 
     public function attemptRegister(RegisterRequest $request){
-        if(User::create($request->validated())){
-            Auth::attempt($request->only('email', 'password'));
+        $data = $request->validated();
 
-            return to_route('dashboard');
+        if(User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'remember_token' => Str::random(15),
+        ])){
+            if(Auth::attempt(
+                ['email' => $data['email'], 'password' => $data['password']], 
+                !empty($data['remember_me'])
+            )){
+                return to_route('dashboard');
+            }
+
+            return back()->with('errorMessage', 'Error on authentication');
         }
     }
 }

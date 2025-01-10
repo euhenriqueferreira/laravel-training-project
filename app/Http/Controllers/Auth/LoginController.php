@@ -27,7 +27,7 @@ class LoginController
 
         session()->put('emailAttempted', $request->email);
 
-        return back()->with('errorMessage', 'Invalid credentials! Do you want to create an account with this email?');
+        return back()->with('errorMessage', 'Invalid credentials! Wanna create an account with this email?');
     }
 
 

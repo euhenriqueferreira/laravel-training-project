@@ -1,36 +1,18 @@
 <x-layouts.guest>
-    <div class="w-screen h-screen flex justify-center items-center">
-        <div class="w-full max-w-screen-sm bg-slate-800 rounded-md px-4 py-8">
-            <h1 class="text-white text-2xl font-bold text-center">Forgot Password</h1>
+    <div class="bg-white w-full max-w-md rounded-lg px-5 py-8 shadow-md">
+        <h1 class="text-gray-800 text-3xl font-bold text-center mb-4">Reset your password</h1>
 
-            <form action="{{ route('password.update') }}" method="post" class="space-y-3">
-                @csrf
-                <div>
-                    <input class="w-full rounded-md h-10 pl-3" type="text" name="email" placeholder="Email" value="{{ old('email', $email) }}" readonly>
-                    @error('email')
-                        <div class="text-white mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
+        <x-img :src="asset('images/fish.png')" alt="Logo" class="w-28 h-28 object-contain mx-auto mb-8 cursor-pointer hover:scale-105 hover:hue-rotate-60 transition" />
 
-                <div>
-                    <input class="w-full rounded-md h-10 pl-3" type="password" name="password" placeholder="Password">
-                    @error('password')
-                        <div class="text-white mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
+        <x-form :action="route('password.update')" post class="space-y-3">
+            <x-input name="email" placeholder="Email" :value="old('email', $email)" />
+            <x-input password name="password" placeholder="Password" />
+            <x-input password name="password_confirmation" placeholder="Password Confirmation" />
 
-                <div>
-                    <input class="w-full rounded-md h-10 pl-3" type="password" name="password_confirmation" placeholder="Confirm your password">
-                    @error('password_confirmation')
-                        <div class="text-white mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
+            <input type="hidden" name="token" value="{{ $token }}">
+            
+            <x-button gradient >Reset my password</x-button>
+        </x-form>
 
-                <input type="hidden" name="token" value="{{ $token }}">
-
-                <button type="submit" class="bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition">Reset password</button>
-            </form>
-        </div>
     </div>
-    
 </x-layouts.guest>

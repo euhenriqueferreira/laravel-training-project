@@ -8,7 +8,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    {{ $slot }}
+<body class="bg-gray-100">
+    <div class="w-screen h-screen flex justify-center items-center">
+        {{ $slot }}
+    </div>
 </body>
 </html>

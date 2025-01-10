@@ -24,7 +24,8 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:4', 'max:255'],
             'email' => ['required', 'email', 'min:12', 'max:255', 'unique:users'],
-            'password' => ['required', 'min:8', 'max:255', 'regex:/[\W_]+/', 'confirmed']
+            'password' => ['required', 'min:8', 'max:255', 'regex:/[\W_]+/', 'confirmed'],
+            'remember_me'=> ['nullable', 'boolean']
         ];
     }
 }

@@ -1,48 +1,46 @@
 <x-layouts.guest>
-    <div class="w-screen h-screen flex justify-center items-center">
-        <div class="w-full max-w-screen-sm bg-slate-800 rounded-md px-4 py-8">
-            <h1 class="text-white text-2xl font-bold text-center">Login</h1>
+    <div class="bg-white w-full max-w-md rounded-lg px-5 py-8 shadow-md">
+        <h1 class="text-gray-800 text-3xl font-bold text-center mb-4">Sign In</h1>
 
-            <form action="{{ route('login') }}" method="post" class="space-y-3" id="form-login">
-                @csrf
-                <div>
-                    <input class="w-full rounded-md h-10 pl-3" type="text" name="email" placeholder="Email" value="{{ old('email') }}">
-                    @error('email')
-                        <div class="text-white mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div>
-                    <input class="w-full rounded-md h-10 pl-3" type="password" name="password" id="password" placeholder="Password">
-                    @error('password')
-                        <div class="text-white mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
+        <x-img :src="asset('images/fish.png')" alt="Logo" class="w-28 h-28 object-contain mx-auto mb-8 cursor-pointer hover:scale-105 hover:hue-rotate-60 transition" />
 
-                {{-- Error message for invalid credentials --}}
-                @if(session('errorMessage'))
-                    <a href="{{ route('register') }}" class="block text-white underline text-sm">{{ session('errorMessage') }}</a>
-                @endif
+        <x-form :action="route('login')" post class="space-y-3" id="form-login">
+            <x-input name="email" placeholder="Email" :value="old('email')" />
+            <x-input password name="password" placeholder="Password" />
 
-                {{-- Status for reset password (DONT REMOVE) --}}
-                @if(session('status'))
-                    <p class="block text-green-400 text-sm">{{ session('status') }}</p>
-                @endif
+            {{-- Error message for invalid credentials --}}
+            @if(session('errorMessage'))
+                <x-anchor :href="route('register')" underline>{{ session('errorMessage') }}</x-anchor>
+            @endif
 
-                <div class="flex items-center space-x-1">
-                    <input type="checkbox" name="remember_me" value="1">
-                    <label for="remember_me" class="text-white">Remember me</label>
-                </div>
+            {{-- Status for reset password (DONT REMOVE) --}}
+            @if(session('status'))
+                <p class="block text-green-600 text-sm">{{ session('status') }}</p>
+            @endif
 
-                <div class="flex justify-between items-center">
-                    <button type="submit" form="form-login" class="bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition">Send</button>
-                    <a href="{{ route('password.request') }}" class="text-white underline text-sm ">I have forgot my password</a>
-                </div>
-            </form>
-            <div class="flex space-x-3 items-center">
-                <a class="w-full block mt-2 bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition" href="{{ route('social.redirect', ['driver' => 'google']) }}">Login com o Google</a>
-                <a class="w-full block mt-2 bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition" href="{{ route('social.redirect', ['driver' => 'github']) }}">Login com o Github</a>
+            <div class="flex justify-between items-center gap-x-6">
+                <x-input.checkbox name="remember_me">Remember me</x-input.checkbox>
+                <x-anchor :href="route('password.request')">I have forgotten my password</x-anchor>
             </div>
+
+            <x-button gradient form="form-login">Sign In</x-button>
+        </x-form>
+
+
+        <div class="block text-center mt-6">
+            <x-anchor :href="route('social.redirect', ['driver' => 'google'])" oauth2>
+                <span>Login with Google</span>
+                <x-svg.google />
+            </x-anchor>
+
+            <x-anchor :href="route('social.redirect', ['driver' => 'github'])" oauth2>
+                <span>Login with Github</span>
+                <x-svg.github />
+            </x-anchor>
+        </div>
+
+        <div class="block text-center mt-10">
+            <x-anchor :href="route('register')">Don't have an account? Sign Up</x-anchor>
         </div>
     </div>
-    
 </x-layouts.guest>

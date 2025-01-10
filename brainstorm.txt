@@ -24,3 +24,5 @@ Dashboard
 
 Login
 - Se o usuário estiver autenticado e tentar acessar login, redirecione para dashboard
+
+
