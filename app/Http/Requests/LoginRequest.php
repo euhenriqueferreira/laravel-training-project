@@ -23,7 +23,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', 'min:12', 'max:255'],
-            'password' => ['required', 'min:8', 'max:255', 'regex:/[\W_]+/']
+            'password' => ['required', 'min:8', 'max:255', 'regex:/[\W_]+/'],
+            'remember_me'=> ['nullable', 'boolean']
         ];
     }
 }

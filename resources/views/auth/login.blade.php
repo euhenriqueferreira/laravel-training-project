@@ -28,6 +28,11 @@
                     <p class="block text-green-400 text-sm">{{ session('status') }}</p>
                 @endif
 
+                <div class="flex items-center space-x-1">
+                    <input type="checkbox" name="remember_me" value="1">
+                    <label for="remember_me" class="text-white">Remember me</label>
+                </div>
+
                 <div class="flex justify-between items-center">
                     <button type="submit" form="form-login" class="bg-slate-600 text-white px-6 py-1 rounded-md hover:bg-slate-500 transition">Send</button>
                     <a href="{{ route('password.request') }}" class="text-white underline text-sm ">I have forgot my password</a>

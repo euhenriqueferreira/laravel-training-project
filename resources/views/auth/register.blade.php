@@ -14,7 +14,7 @@
                 </div>
 
                 <div>
-                    <input class="w-full rounded-md h-10 pl-3" type="text" name="email" placeholder="Email" value="{{ old('email') }}">
+                    <input class="w-full rounded-md h-10 pl-3" type="text" name="email" placeholder="Email" value="{{ old('email', $emailAttempted) }}">
                     @error('email')
                         <div class="text-white mt-1">{{ $message }}</div>
                     @enderror

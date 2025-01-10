@@ -16,7 +16,12 @@ class LoginController
 
     // Attempt to login
     public function attemptLogin(LoginRequest $request){
-        if(Auth::attempt($request->validated())){
+        $data = $request->validated();
+
+        if(Auth::attempt(
+            ['email' => $data['email'], 'password' => $data['password']], 
+            !empty($data['remember_me'])
+        )){
             return to_route('dashboard');
         }
 
