@@ -18,10 +18,12 @@
                     @enderror
                 </div>
 
+                {{-- Error message for invalid credentials --}}
                 @if(session('errorMessage'))
-                    <a href="#" class="block text-white underline text-sm">{{ session('errorMessage') }}</a>
+                    <a href="{{ route('register') }}" class="block text-white underline text-sm">{{ session('errorMessage') }}</a>
                 @endif
 
+                {{-- Status for reset password (DONT REMOVE) --}}
                 @if(session('status'))
                     <p class="block text-green-400 text-sm">{{ session('status') }}</p>
                 @endif
