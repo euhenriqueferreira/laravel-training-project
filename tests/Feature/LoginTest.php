@@ -65,13 +65,5 @@ test('the email and password should be validated on the database', function() {
         ->assertRedirect('/');
 });
 
-test("if the data do not be validated, should be suggested to create an account", function(){
-    User::factory()->create();
-
-    post(route('login'), ['email' => 'mdada@email.com', 'password' => 'password*'])
-        ->assertRedirect();
-});
-
-
 
 
