@@ -18,6 +18,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\SocialAuthenticationController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -55,9 +57,16 @@ Route::middleware(SetLocale::class)->group(function(){
     });
     
     Route::middleware(AuthMiddleware::class)->group(function (){
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
+        #region Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        #endregion
+
+        #region Profile
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        
+        Route::put('/profile/infos', [ProfileController::class, 'updateInfos'])->name('profile.update.infos');
+        Route::put('/profile/profile_photo', [ProfileController::class, 'updateProfilePhoto'])->name('profile.update.profile_photo');
+        Route::put('/profile/cover_photo', [ProfileController::class, 'updateCoverPhoto'])->name('profile.update.cover_photo');
         
         Route::get('/logout', LogoutController::class)->name('logout');
     });
