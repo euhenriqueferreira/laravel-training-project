@@ -1,7 +1,8 @@
 @props([
     'href',
     'underline' => null,
-    'oauth2' => null
+    'oauth2' => null,
+    'nav-button' => null
 ])
 
 <a href="{{ $href }}" {{ $attributes }} @class([

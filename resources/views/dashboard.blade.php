@@ -1,3 +1,3 @@
-<div>dashboard do site</div>
-
-{{ auth()->check() }}
+<x-layouts.app>
+    
+</x-layouts.app>
