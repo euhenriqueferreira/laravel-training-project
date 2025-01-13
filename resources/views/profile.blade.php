@@ -90,13 +90,10 @@
                     <p class="block text-red-600 dark:text-red-400 text-sm">{{ session('errorMessage') }}</p>
                 @endif
 
-                @if(session('successMessage'))
-                    <p class="block text-green-600 dark:text-green-400 text-sm">{{ session('successMessage') }}</p>
-                @endif
-
-                <div class="bg-gray-300 dark:bg-gray-700 w-fit rounded-lg fixed bottom-5 left-1/2 -translate-x-1/2 py-3 px-6 text-base font-semibold text-gray-900 dark:text-white">
-                    dajkldjaslkdakljdajdkljakldjaljdasl
-                </div>
+                <x-alert success sessionKey="successMessage" />
+                {{-- <x-alert info>
+                    Wow man thats nice
+                </x-alert> --}}
 
                 <div>
                     <h2 class="text-xl font-semibold text-gray-900">Change your password</h2>
