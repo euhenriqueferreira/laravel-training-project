@@ -37,7 +37,7 @@
                         Profile
                         <x-svg model="user-circle" width="5" height="5" color="gray-900" darkThemeColor="white" />
                     </x-anchor>
-                    <x-anchor href="" class="flex items-center justify-between gap-x-1 no-underline text-base w-full bg-transparent py-2 px-3 hover:bg-gray-300 transition rounded-md text-gray-900">
+                    <x-anchor href="{{ route('logout') }}" onclick="return confirm('Are you sure?')" class="flex items-center justify-between gap-x-1 no-underline text-base w-full bg-transparent py-2 px-3 hover:bg-gray-300 transition rounded-md text-gray-900">
                         Logout
                         <x-svg model="logout" width="5" height="5" color="gray-900" darkThemeColor="white" />
                     </x-anchor>
