@@ -1,6 +1,6 @@
 <x-layouts.guest>
-    <div class="bg-white w-full max-w-md rounded-lg px-5 py-8 shadow-md">
-        <h1 class="text-gray-800 text-3xl font-bold text-center mb-4">{{ __('auth.login')}}</h1>
+    <div class="bg-white dark:bg-gray-800 w-full max-w-md rounded-lg px-5 py-8 shadow-md">
+        <h1 class="text-gray-800 dark:text-white text-3xl font-bold text-center mb-4">{{ __('auth.login')}}</h1>
 
         <x-img :src="asset('images/fish.png')" alt="Logo" class="w-28 h-28 object-contain mx-auto mb-8 cursor-pointer hover:scale-105 hover:hue-rotate-60 transition" />
 
@@ -10,12 +10,12 @@
 
             {{-- Error message for invalid credentials --}}
             @if(session('errorMessage'))
-                <p class="block text-gray-900 text-sm text-left">{{ session('errorMessage') }}</p>
+                <p class="block text-gray-900 dark:text-white text-sm text-left">{{ session('errorMessage') }}</p>
             @endif
 
             {{-- Status for reset password (DONT REMOVE) --}}
             @if(session('status'))
-                <p class="block text-green-600 text-sm">{{ session('status') }}</p>
+                <p class="block text-green-600 dark:text-green-400 text-sm">{{ session('status') }}</p>
             @endif
 
             <div class="flex justify-between items-center gap-x-6">
@@ -35,7 +35,7 @@
 
             <x-anchor :href="route('social.redirect', ['driver' => 'github'])" oauth2>
                 <span>{{ __('auth.login_with_github') }}</span>
-                <x-svg.github />
+                <x-svg.github color="#ffffff" />
             </x-anchor>
         </div>
 
