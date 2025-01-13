@@ -18,7 +18,7 @@
                 <p class="block text-green-600 dark:text-green-400 text-sm">{{ session('status') }}</p>
             @endif
 
-            <div class="flex justify-between items-center gap-x-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-x-6 gap-y-1">
                 <x-input.checkbox name="remember_me">{{ __('auth.remember_me') }}</x-input.checkbox>
                 <x-anchor :href="route('password.request')">{{ __('auth.forgot_my_password') }}</x-anchor>
             </div>

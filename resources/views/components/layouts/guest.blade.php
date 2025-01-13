@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
 
-    <div class="w-screen h-screen flex justify-center items-center relative">
+    <div class="w-screen h-screen flex justify-center items-center relative sm:px-0 px-3">
         <x-switch-theme />
 
         {{ $slot }}
