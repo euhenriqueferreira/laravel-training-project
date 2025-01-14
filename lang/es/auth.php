@@ -45,6 +45,9 @@ return [
     'reset_password' => 'Restablecer tu contraseña',
     'reset_password_button' => 'Restablecer mi contraseña',
 
+    // Logout
+    'logout' => 'Cerrar sesión',
+    'logout_warning' => '¿Estás seguro de que deseas cerrar sesión?',
 
     // Errors
     'failed' => 'These credentials do not match our records.',

@@ -44,7 +44,12 @@ return [
     // Reset my password
     'reset_password' => 'Reset your password',
     'reset_password_button' => 'Reset my password',
-
+    
+    
+    // Logout
+    'logout' => 'Logout',
+    'logout_warning' => 'Are you sure you want to log out?',
+    
 
     // Errors
     'failed' => 'These credentials do not match our records.',

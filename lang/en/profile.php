@@ -3,6 +3,7 @@
 return [
 
     // Titles
+    'profile' => 'Profile',
     'about_me' => 'About me',
     'profile_infos' => 'Profile Infos',
     'change_your_password' => 'Change your password',

@@ -44,6 +44,10 @@ return [
     'reset_password' => 'Redefina sua senha',
     'reset_password_button' => 'Redefinir minha senha',
     
+    // Logout
+    'logout' => 'Sair',
+    'logout_warning' => 'Tem certeza que deseja sair?',
+
     // Errors
     'failed' => 'Credenciais não encontradas em nossos registros.',
     'password' => 'The provided password is incorrect.',
