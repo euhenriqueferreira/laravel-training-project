@@ -1,6 +1,6 @@
 <x-layouts.app>
     <div class="max-w-screen-lg mx-auto mt-10 space-y-8 pb-10">
-       <div class="shadow-lg rounded-lg">
+       <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg">
             <div class="bg-gray-400 w-full h-56 rounded-t-lg">
                 <div x-data="{ hover: false }" class="relative w-full h-full flex items-center justify-center cursor-pointer" @mouseover="hover = true" @mouseleave="hover = false">
                     @if($user->cover_photo)
@@ -57,7 +57,7 @@
                     </div>
                 </div>{{-- Profile Photo --}}
 
-                <div class="flex-1 text-3xl font-semibold text-gray-900">
+                <div class="flex-1 text-3xl font-semibold text-gray-900 dark:text-white">
                     {{ $user->name }}
                 </div>
 
@@ -70,16 +70,16 @@
             </div>{{-- Second Line--}}
        </div>{{-- Top Profile --}}
 
-       <div class="shadow-lg rounded-lg p-6 py-6">
+       <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6">
             <div class="mb-5">
-                <h2 class="text-xl font-semibold text-gray-900">About me</h2>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">About me</h2>
             </div>
-            <p class="max-h-32">{{ $user->bio ? $user->bio : 'You don\'t have a bio yet.'}}</p>
+            <p class="max-h-32 text-base font-normal text-gray-900 dark:text-white">{{ $user->bio ? $user->bio : 'You don\'t have a bio yet.'}}</p>
        </div>{{-- About me --}}
 
-        <div class="shadow-lg rounded-lg p-6 py-6">
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6">
             <div>
-                <h2 class="text-xl font-semibold text-gray-900 mb-5">Profile Infos</h2>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-5">Profile Infos</h2>
             </div>
             <x-form :action="route('profile.update.infos')" class="flex flex-col gap-y-4" put>
                 <x-input name="name" placeholder="Your name" :value="old('name', $user->name)" profile_page :label="__('Name')" />
@@ -96,7 +96,7 @@
                 @endif
 
                 <div>
-                    <h2 class="text-xl font-semibold text-gray-900">Change your password</h2>
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Change your password</h2>
                 </div>
                 <x-input password name="password" placeholder="Your password" profile_page :label="__('Password')"/>
                 <x-input password name="new_password" placeholder="New Password" profile_page :label="__('New Password')"/>

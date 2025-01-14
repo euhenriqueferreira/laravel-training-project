@@ -5,7 +5,7 @@
 ])
 
 <div class="w-full flex flex-col gap-y-1">
-    <label for="{{ $name }}">{{ $label }}</label>
+    <label for="{{ $name }}" class="text-base font-normal text-gray-900 dark:text-white">{{ $label }}</label>
     <div class="w-full">
         <textarea id="{{ $name }}" name="{{ $name }}" placeholder="{{ $placeholder }}" {{ $attributes }} 
         @class([
