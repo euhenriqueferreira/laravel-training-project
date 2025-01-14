@@ -12,6 +12,7 @@ use App\Http\Requests\UpdateProfilePhotoRequest;
 class ProfileController
 {
     public function index(){
+
         return view('profile', [
             'user' => auth()->user(),
         ]);

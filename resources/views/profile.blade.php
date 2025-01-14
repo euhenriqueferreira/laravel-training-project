@@ -87,13 +87,12 @@
                 </x-input.textarea>
 
                 @if(session('errorMessage'))
-                    <p class="block text-red-600 dark:text-red-400 text-sm">{{ session('errorMessage') }}</p>
+                    <x-alert danger>{{ session()->get('errorMessage') }}</x-alert>
                 @endif
-
-                <x-alert success sessionKey="successMessage" />
-                {{-- <x-alert info>
-                    Wow man thats nice
-                </x-alert> --}}
+                
+                @if(session('successMessage'))
+                    <x-alert success>{{ session()->get('successMessage') }}</x-alert>
+                @endif
 
                 <div>
                     <h2 class="text-xl font-semibold text-gray-900">Change your password</h2>
