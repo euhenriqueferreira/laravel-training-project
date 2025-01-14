@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
+
+use function Pest\Laravel\assertDatabaseMissing;
 use function Pest\Laravel\get;
 use function Pest\Laravel\put;
 use function Pest\Laravel\withoutExceptionHandling;
 
 beforeEach(function(){
-    login();
+    $user = login();
 });
 
 test('the profile page should have the user information', function(){
@@ -66,4 +69,12 @@ test('the email should have a maximum of 255 characters', function() {
 test('if the user updates the profile info, it should redirect back to profile page', function(){
     put(route('profile.update.infos'), ['name' => 'Joe Doe', 'email' => 'joedoe@email.com', 'bio' => 'Minha bio', 'password' => 'password*', 'new_password' => '', 'new_password_confirmation' => ''])
         ->assertRedirect();
+});
+
+test('if the user deletes the account, the user should be removed from database', function(){
+    $user = auth()->user();
+    get(route('profile.delete'), ['password_' => 'password*'])
+    ->assertRedirect();
+
+    assertDatabaseMissing('users', ['id' => $user->id]);
 });

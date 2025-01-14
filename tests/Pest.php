@@ -47,7 +47,7 @@ expect()->extend('toBeOne', function () {
 */
 
 function login(): User|Authenticatable{
-    $user = User::factory()->create();
+    $user = User::factory()->create(['password' => 'password*']);
     
     actingAs($user);
     

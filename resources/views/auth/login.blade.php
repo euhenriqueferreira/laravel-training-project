@@ -12,8 +12,8 @@
                 <x-alert danger>{{ session()->get('errorMessage') }}</x-alert>
             @endif
             
-            @if(session('status'))
-                <x-alert success>{{ session()->get('status') }}</x-alert>
+            @if(session('successMessage'))
+                <x-alert success>{{ session()->get('successMessage') }}</x-alert>
             @endif
 
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-x-6 gap-y-1">

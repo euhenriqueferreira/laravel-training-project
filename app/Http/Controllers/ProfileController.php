@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateCoverPhotoRequest;
 use App\Http\Requests\ProfileUpdateInfosRequest;
 use App\Http\Requests\UpdateProfilePhotoRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController
 {
     public function index(){
-
         return view('profile', [
             'user' => auth()->user(),
         ]);
@@ -67,5 +67,22 @@ class ProfileController
         ]);
 
         return back()->with('successMessage',  __('profile.update_photo_success'));
+    }
+
+    public function deleteAccount(Request $request){
+        $user = auth()->user();
+        $data = $request->validate([
+            'password_' => ['required', 'min:8', 'max:255', 'regex:/[\W_]+/'],
+        ]);
+
+        if(!Hash::check($data['password_'], $user->password)){
+            return back()->with('errorMessage', __('profile.password_incorrect'));
+        }
+        
+        Auth::logout();
+        session()->invalidate();
+        $user->delete();
+
+        return to_route('login')->with('successMessage', __('profile.delete_success'));
     }
 }

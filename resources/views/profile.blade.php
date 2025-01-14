@@ -108,5 +108,30 @@
                 </div>
             </x-form>
         </div>{{-- Profile Update Form --}}
+
+        <div x-data="{ modalOpen: false }" class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6 flex items-center justify-between">
+            <div class="space-y-1">
+                <h2 class="text-xl font-semibold text-red-500 dark:text-red-500">{{ __('profile.delete_account') }}</h2>
+                <p class="text-base font-normal text-gray-900/60 dark:text-white/60">{{ __('profile.delete_account_description') }}</p>
+            </div>
+            
+            <x-anchor href="" danger @click.prevent="modalOpen = true">{{ __('profile.delete_account_button') }}</x-anchor>
+
+            <div x-show="modalOpen" class="w-screen h-screen bg-black/60 fixed left-0 top-0 z-50 flex items-center justify-center"
+                x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+            >
+                <div @click.outside="modalOpen = false" class="bg-white dark:bg-gray-800 rounded-lg px-6 py-4 max-w-[450px]">
+                    <h1 class="text-gray-800 dark:text-white text-3xl font-bold text-center mb-4">{{ __('profile.delete_account') }}</h1>
+                    <x-img :src="asset('images/fish.png')" alt="Logo" class="w-28 h-28 object-contain mx-auto mb-8 cursor-pointer hover:scale-105 hover:hue-rotate-60 transition" />
+                    <p class="whitespace-pre-wrap text-base text-left text-gray-800 dark:text-white mb-5">{{ __('profile.delete_account_warning') }}</p>
+                    
+                    <x-form :action="route('profile.delete')" delete class="space-y-4">
+                        <x-input password name="password_" :placeholder="__('profile.password_placeholder')" profile_page/>
+                        <x-button gradient>{{ __('profile.delete_account_button') }}</x-button>
+                    </x-form>
+                </div>
+            </div>
+        </div>{{-- Delete account --}}
     </div>
 </x-layouts.app>

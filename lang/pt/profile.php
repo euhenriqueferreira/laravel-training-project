@@ -7,6 +7,13 @@ return [
     'profile_infos' => 'Informações do Perfil',
     'change_your_password' => 'Redefina sua senha',
     'add_an_image' => 'Adicionar',
+    'delete_account' => 'Excluir Conta',
+    'delete_account_description' => 'Exclui permanentemente a sua conta e os seus dados',
+    'delete_account_warning' => 
+    'Você tem certeza que deseja excluir sua conta? Essa ação é permanente e não pode ser desfeita. Todos os seus dados serão perdidos, incluindo informações pessoais, configurações e histórico. Por favor, pense duas vezes antes de prosseguir.
+
+Aviso: Essa ação é irreversível.
+Perda de dados: Todos os seus dados serão permanentemente excluídos.',
 
     // Labels
     'name_label' => 'Nome',
@@ -25,11 +32,12 @@ return [
 
     // Buttons
     'button_submit' => 'Atualizar',
+    'delete_account_button' => 'Excluir minha conta',
     
     // Error/Success
     'password_incorrect' => 'Senha incorreta',
     'update_profile_success' => 'Perfil atualizado com sucesso!',
     'update_cover_success' => 'Foto de capa atualizada com sucesso!',
     'update_photo_success' => 'Foto de perfil atualizada com sucesso!',
-
+    'delete_success' => 'Sua conta foi excluída com sucesso',
 ];

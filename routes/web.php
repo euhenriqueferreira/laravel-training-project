@@ -62,12 +62,18 @@ Route::middleware(SetLocale::class)->group(function(){
         #endregion
 
         #region Profile
+        //Get
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-        
+
+        // Update
         Route::put('/profile/infos', [ProfileController::class, 'updateInfos'])->name('profile.update.infos');
         Route::put('/profile/profile_photo', [ProfileController::class, 'updateProfilePhoto'])->name('profile.update.profile_photo');
         Route::put('/profile/cover_photo', [ProfileController::class, 'updateCoverPhoto'])->name('profile.update.cover_photo');
-        
+
+        // Delete
+        Route::delete('/profile/delete', [ProfileController::class, 'deleteAccount'])->name('profile.delete');
+
+        #endregion
         Route::get('/logout', LogoutController::class)->name('logout');
     });
 });

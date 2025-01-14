@@ -7,6 +7,17 @@ return [
     'profile_infos' => 'Profile Infos',
     'change_your_password' => 'Change your password',
     'add_an_image' => 'Add an image',
+    'delete_account' => 'Delete Account',
+    'delete_account_description' => 'Permanently delete your account and data.',
+    'delete_account_warning' => 
+    'Are you sure you want to delete your account? This action is permanent and cannot be undone. All your data will be lost, including personal information, settings, and history. Please double-check before proceeding.
+
+Warning: This action is irreversible.
+Data Loss: All your data will be permanently deleted.',
+
+    'delete_account_button' => 'Delete my account',
+    'delete_success' => 'Your account was successfully deleted',
+    
 
     // Labels
     'name_label' => 'Name',

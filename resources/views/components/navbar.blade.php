@@ -2,7 +2,7 @@
     'username' => __('You'),
 ])
 
-<div class="h-16 shadow-sm px-5 sticky z-50 top-0 bg-gray-100 dark:bg-gray-900 dark:border-b dark:border-gray-700/40">
+<div class="h-16 shadow-sm px-5 sticky z-30 top-0 bg-gray-100 dark:bg-gray-900 dark:border-b dark:border-gray-700/40">
     <div class="w-full h-full max-w-screen-lg mx-auto flex items-center justify-between gap-x-4">
         <x-anchor href="{{ route('dashboard') }}">
             <x-img :src="asset('images/fish.png')" alt="Logo" class="w-14 h-14 object-contain cursor-pointer hover:scale-105 hover:hue-rotate-60 transition" />    
