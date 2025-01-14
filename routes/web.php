@@ -76,6 +76,9 @@ Route::middleware(SetLocale::class)->group(function(){
 
         // Logout
         Route::get('/logout', LogoutController::class)->name('logout');
+
+        // Set Locale
+        Route::put('/locale/set', [ProfileController::class, 'setLocale'])->name('profile.set-locale');
         #endregion
     });
 

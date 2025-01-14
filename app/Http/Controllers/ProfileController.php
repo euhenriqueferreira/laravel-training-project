@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateCoverPhotoRequest;
 use App\Http\Requests\ProfileUpdateInfosRequest;
 use App\Http\Requests\UpdateProfilePhotoRequest;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController
@@ -15,6 +16,8 @@ class ProfileController
     public function index(){
         return view('profile', [
             'user' => auth()->user(),
+            'languages' => ['en', 'es', 'pt'],
+            'preferred_language' => App::getLocale(),
         ]);
     }
 
@@ -84,5 +87,12 @@ class ProfileController
         $user->delete();
 
         return to_route('login')->with('successMessage', __('profile.delete_success'));
+    }
+
+    public function setLocale(Request $request){
+        App::setLocale($request->preferred_lang);
+        session(['preferred_lang' => $request->preferred_lang]);
+ 
+        return back()->with('successMessage', __('profile.language_success'));
     }
 }

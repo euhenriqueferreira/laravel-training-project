@@ -16,6 +16,8 @@ Warning: This action is irreversible.
 Data Loss: All your data will be permanently deleted.',
     'verify_email' => 'Verify your email',
     'verify_email_description' => 'Verify your email to complete the registration process.',
+    'change_lang' => 'Language',
+    'change_lang_description' => 'Change the language to improve your understanding',
 
     // Labels
     'name_label' => 'Name',
@@ -43,4 +45,6 @@ Data Loss: All your data will be permanently deleted.',
     'update_cover_success' => 'Cover photo successfully updated!',
     'update_photo_success' => 'Profile photo successfully updated!',
     'delete_success' => 'Your account was successfully deleted',
+    'language_success' => 'Language changed',
+    
 ];

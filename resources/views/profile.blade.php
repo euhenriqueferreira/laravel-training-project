@@ -143,5 +143,26 @@
                 <x-button outline>{{ __('profile.verify_email_button') }}</x-button>
             </x-form>
         </div>{{-- Email Verification --}}
+
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6 flex items-center justify-between">
+            <div class="space-y-1">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ __('profile.change_lang') }}</h2>
+                <p class="text-base font-normal text-gray-900/60 dark:text-white/60">{{ __('profile.change_lang_description') }}</p>
+            </div>
+            <x-form x-data="{}" x-ref="form" action="{{ route('profile.set-locale') }}" put class="flex items-center justify-center">
+                @foreach ($languages as $lang)
+                    <div class="hover:bg-gray-400 transition border-gray-500 bg-gray-300 text-gray-900
+                        @if($lang === $preferred_language) bg-blue-600 text-white border-blue-600 hover:bg-blue-500  @endif
+                        @if($loop->first) rounded-l-md border-r @endif 
+                        @if($loop->last) rounded-r-md border-l @endif">
+
+                        <label for="preferred_lang{{ $lang }}" class="px-4 py-1 block w-full h-full cursor-pointer">{{ $lang }}</label>
+                        <input type="checkbox" name="preferred_lang" id="preferred_lang{{ $lang }}" value="{{ $lang }}" class="hidden" @change="$refs.form.submit()">
+                    </div>
+                    @if($loop->last)
+                    @endif
+                @endforeach
+            </x-form>
+        </div>{{-- Email Verification --}}
     </div>
 </x-layouts.app>

@@ -16,7 +16,8 @@ Advertencia: Esta acción es irreversible.
 Pérdida de datos: Todos tus datos serán eliminados permanentemente.',
     'verify_email' => 'Verificar tu correo electrónico',
     'verify_email_description' => 'Verifica tu correo electrónico para completar el proceso de registro.',
-
+    'change_lang' => 'Idioma',
+    'change_lang_description' => 'Cambia el idioma para mejorar la comprensión',
 
     // Etiquetas
     'name_label' => 'Nombre',
@@ -44,4 +45,5 @@ Pérdida de datos: Todos tus datos serán eliminados permanentemente.',
     'update_cover_success' => '¡Foto de portada actualizada con éxito!',
     'update_photo_success' => '¡Foto de perfil actualizada con éxito!',
     'delete_success' => 'Tu cuenta ha sido eliminada con éxito',
+    'language_success' => 'Idioma cambiado',
 ];

@@ -16,7 +16,8 @@ Aviso: Essa ação é irreversível.
 Perda de dados: Todos os seus dados serão permanentemente excluídos.',
     'verify_email' => 'Verifique seu email',
     'verify_email_description' => 'Verifique seu email para concluir o processo de registro.',
-
+    'change_lang' => 'Idioma',
+    'change_lang_description' => 'Altere o idioma para melhorar a sua compreensão',
 
 
     // Labels
@@ -45,4 +46,5 @@ Perda de dados: Todos os seus dados serão permanentemente excluídos.',
     'update_cover_success' => 'Foto de capa atualizada com sucesso!',
     'update_photo_success' => 'Foto de perfil atualizada com sucesso!',
     'delete_success' => 'Sua conta foi excluída com sucesso',
+    'language_success' => 'Idioma alterado',
 ];
