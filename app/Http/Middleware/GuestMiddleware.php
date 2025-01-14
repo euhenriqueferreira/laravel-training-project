@@ -19,7 +19,7 @@ class GuestMiddleware
         if(Auth::check()){
             return to_route('dashboard');
         }
-
+        
         return $next($request);
     }
 }

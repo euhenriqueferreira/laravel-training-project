@@ -66,4 +66,3 @@ test('the email and password should be validated on the database', function() {
 });
 
 
-

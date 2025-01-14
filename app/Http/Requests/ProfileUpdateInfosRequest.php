@@ -23,7 +23,7 @@ class ProfileUpdateInfosRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:4', 'max:255'],
-            'email' => ['required'],
+            'email' => ['required', 'email', 'min:12', 'max:255'],
             'bio' => ['nullable', 'string'],
             'password' => ['required', 'min:8', 'max:255', 'regex:/[\W_]+/'],
             'new_password' => ['nullable', 'min:8', 'max:255', 'regex:/[\W_]+/', 'confirmed'],
