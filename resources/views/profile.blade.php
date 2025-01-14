@@ -130,8 +130,8 @@
             </div>
             <x-form x-data="{}" x-ref="form" action="{{ route('profile.set-locale') }}" put class="flex items-center justify-center">
                 @foreach ($languages as $lang)
-                    <div class="hover:bg-gray-400 transition border-gray-500 bg-gray-300 text-gray-900
-                        @if($lang === $preferred_language) bg-blue-600 text-white border-blue-600 hover:bg-blue-500  @endif
+                    <div class="transition border-gray-500 bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600
+                        @if($lang === $preferred_language) bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 dark:hover:bg-blue-400 hover:bg-blue-500  @endif
                         @if($loop->first) rounded-l-md border-r @endif 
                         @if($loop->last) rounded-r-md border-l @endif">
 
@@ -142,7 +142,7 @@
                     @endif
                 @endforeach
             </x-form>
-        </div>{{-- Email Verification --}}
+        </div>{{-- Change Language --}}
    
         <div x-data="{ modalOpen: false }" class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6 flex items-center justify-between">
             <div class="space-y-1">
