@@ -14,6 +14,10 @@ return [
 
 Aviso: Essa ação é irreversível.
 Perda de dados: Todos os seus dados serão permanentemente excluídos.',
+    'verify_email' => 'Verifique seu email',
+    'verify_email_description' => 'Verifique seu email para concluir o processo de registro.',
+
+
 
     // Labels
     'name_label' => 'Nome',
@@ -33,6 +37,7 @@ Perda de dados: Todos os seus dados serão permanentemente excluídos.',
     // Buttons
     'button_submit' => 'Atualizar',
     'delete_account_button' => 'Excluir minha conta',
+    'verify_email_button' => 'Verificar email',
     
     // Error/Success
     'password_incorrect' => 'Senha incorreta',

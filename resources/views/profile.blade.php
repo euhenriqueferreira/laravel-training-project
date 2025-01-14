@@ -133,5 +133,15 @@
                 </div>
             </div>
         </div>{{-- Delete account --}}
+
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6 flex items-center justify-between">
+            <div class="space-y-1">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ __('profile.verify_email') }}</h2>
+                <p class="text-base font-normal text-gray-900/60 dark:text-white/60">{{ __('profile.verify_email_description') }}</p>
+            </div>
+            <x-form action="{{ route('verification.send')}}" post>
+                <x-button outline>{{ __('profile.verify_email_button') }}</x-button>
+            </x-form>
+        </div>{{-- Email Verification --}}
     </div>
 </x-layouts.app>

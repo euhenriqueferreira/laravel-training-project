@@ -7,6 +7,16 @@ return [
     'profile_infos' => 'Información del perfil',
     'change_your_password' => 'Cambia tu contraseña',
     'add_an_image' => 'Añadir una imagen',
+    'delete_account' => 'Eliminar cuenta',
+    'delete_account_description' => 'Eliminar permanentemente tu cuenta y datos.',
+    'delete_account_warning' => 
+    '¿Estás seguro de que deseas eliminar tu cuenta? Esta acción es permanente y no se puede deshacer. Todos tus datos se perderán, incluyendo información personal, configuraciones e historial. Por favor, verifica dos veces antes de continuar.
+
+Advertencia: Esta acción es irreversible.
+Pérdida de datos: Todos tus datos serán eliminados permanentemente.',
+    'verify_email' => 'Verificar tu correo electrónico',
+    'verify_email_description' => 'Verifica tu correo electrónico para completar el proceso de registro.',
+
 
     // Etiquetas
     'name_label' => 'Nombre',
@@ -25,11 +35,13 @@ return [
 
     // Botones
     'button_submit' => 'Actualizar',
+    'delete_account_button' => 'Eliminar mi cuenta',
+    'verify_email_button' => 'Verificar correo electrónico',
     
     // Errores/Éxito
     'password_incorrect' => 'Contraseña incorrecta',
     'update_profile_success' => '¡Perfil actualizado con éxito!',
     'update_cover_success' => '¡Foto de portada actualizada con éxito!',
     'update_photo_success' => '¡Foto de perfil actualizada con éxito!',
-
+    'delete_success' => 'Tu cuenta ha sido eliminada con éxito',
 ];

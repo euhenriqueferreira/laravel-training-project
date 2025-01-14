@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -73,9 +74,15 @@ Route::middleware(SetLocale::class)->group(function(){
         // Delete
         Route::delete('/profile/delete', [ProfileController::class, 'deleteAccount'])->name('profile.delete');
 
-        #endregion
+        // Logout
         Route::get('/logout', LogoutController::class)->name('logout');
+        #endregion
     });
+
+    #region Email Verification
+    Route::get('/profile/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware('signed')->name('verification.verify');
+    Route::post('/profile/email/verify', [EmailVerificationController::class, 'resend'])->middleware('throttle:6,1')->name('verification.send');
+    #endregion
 });
 
 

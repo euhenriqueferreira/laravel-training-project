@@ -14,10 +14,8 @@ return [
 
 Warning: This action is irreversible.
 Data Loss: All your data will be permanently deleted.',
-
-    'delete_account_button' => 'Delete my account',
-    'delete_success' => 'Your account was successfully deleted',
-    
+    'verify_email' => 'Verify your email',
+    'verify_email_description' => 'Verify your email to complete the registration process.',
 
     // Labels
     'name_label' => 'Name',
@@ -36,11 +34,13 @@ Data Loss: All your data will be permanently deleted.',
 
     // Buttons
     'button_submit' => 'Update',
+    'delete_account_button' => 'Delete my account',
+    'verify_email_button' => 'Verify email',
     
     // Error/Success
     'password_incorrect' => 'Password Incorrect',
     'update_profile_success' => 'Profile successfully updated!',
     'update_cover_success' => 'Cover photo successfully updated!',
     'update_photo_success' => 'Profile photo successfully updated!',
-
+    'delete_success' => 'Your account was successfully deleted',
 ];
