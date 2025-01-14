@@ -18,6 +18,7 @@ Pérdida de datos: Todos tus datos serán eliminados permanentemente.',
     'verify_email_description' => 'Verifica tu correo electrónico para completar el proceso de registro.',
     'change_lang' => 'Idioma',
     'change_lang_description' => 'Cambia el idioma para mejorar la comprensión',
+    'empty_bio' => 'Aún no has agregado una bio. ¡Cuéntanos sobre ti!',
 
     // Etiquetas
     'name_label' => 'Nombre',

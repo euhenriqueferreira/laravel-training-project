@@ -11,6 +11,7 @@ return [
     'delete_account_description' => 'Permanently delete your account and data.',
     'delete_account_warning' => 
     'Are you sure you want to delete your account? This action is permanent and cannot be undone. All your data will be lost, including personal information, settings, and history. Please double-check before proceeding.
+    
 
 Warning: This action is irreversible.
 Data Loss: All your data will be permanently deleted.',
@@ -18,6 +19,7 @@ Data Loss: All your data will be permanently deleted.',
     'verify_email_description' => 'Verify your email to complete the registration process.',
     'change_lang' => 'Language',
     'change_lang_description' => 'Change the language to improve your understanding',
+    'empty_bio' => 'You haven\'t added a bio yet. Tell us about yourself!',
 
     // Labels
     'name_label' => 'Name',
