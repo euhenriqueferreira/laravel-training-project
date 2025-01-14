@@ -23,7 +23,7 @@ class ProfileController
         $user = auth()->user();
  
         if(!Hash::check($data['password'], $user->password)){
-            return back()->with('errorMessage', 'Password Incorrect');
+            return back()->with('errorMessage', __('profile.password_incorrect'));
         }
 
         if($data['new_password']){
@@ -40,7 +40,7 @@ class ProfileController
 
         $user->save();
     
-        return back()->with('successMessage', 'Profile successfully updated!');
+        return back()->with('successMessage', __('profile.update_profile_success'));
     }
 
     public function updateCoverPhoto(UpdateCoverPhotoRequest $request){
@@ -53,7 +53,7 @@ class ProfileController
             'cover_photo' => $data['photo'],
         ]);
 
-        return back()->with('successMessage', 'Cover photo successfully updated!');
+        return back()->with('successMessage', __('profile.update_cover_success'));
     }
 
     public function updateProfilePhoto(UpdateProfilePhotoRequest $request){
@@ -66,6 +66,6 @@ class ProfileController
             'profile_photo' => $data['photo'],
         ]);
 
-        return back()->with('successMessage', 'Profile photo successfully updated!');
+        return back()->with('successMessage',  __('profile.update_photo_success'));
     }
 }

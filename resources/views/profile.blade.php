@@ -22,7 +22,7 @@
                         x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                         class="flex items-center justify-center gap-x-2 cursor-pointer w-full h-full absolute left-0 top-0 bg-gray-900/50">
                             <x-svg model="camera" width="8" height="8" color="gray-300" darkThemeColor="white" />
-                            <p class="text-lg text-gray-300">Add an image</p>
+                            <p class="text-lg text-gray-300">{{ __('profile.add_an_image') }}</p>
                         </label>
                     </x-form>
                 </div>
@@ -51,7 +51,7 @@
                             x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                             class="flex flex-col items-center justify-center gap-x-2 cursor-pointer w-full h-full absolute left-0 top-0 bg-gray-900/50">
                                 <x-svg model="camera" width="8" height="8" color="gray-300" darkThemeColor="white" />
-                                <p class="text-lg text-gray-300">Add an image</p>
+                                <p class="text-lg text-gray-300">{{ __('profile.add_an_image') }}</p>
                             </label>
                         </x-form>
                     </div>
@@ -72,19 +72,19 @@
 
        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6">
             <div class="mb-5">
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">About me</h2>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ __('profile.about_me') }}</h2>
             </div>
-            <p class="max-h-32 text-base font-normal text-gray-900 dark:text-white">{{ $user->bio ? $user->bio : 'You don\'t have a bio yet.'}}</p>
+            <p class="whitespace-pre-wrap max-h-34 text-base font-normal text-gray-900 dark:text-white">{{ $user->bio ? $user->bio : 'You don\'t have a bio yet.'}}</p>
        </div>{{-- About me --}}
 
         <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 py-6">
             <div>
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-5">Profile Infos</h2>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-5">{{ __('profile.profile_infos') }}</h2>
             </div>
             <x-form :action="route('profile.update.infos')" class="flex flex-col gap-y-4" put>
-                <x-input name="name" placeholder="Your name" :value="old('name', $user->name)" profile_page :label="__('Name')" />
+                <x-input name="name" :placeholder="__('profile.name_placeholder')" :value="old('name', $user->name)" profile_page :label="__('profile.name_label')" />
                 <x-input name="email" :value="old('email', $user->email)" profile_page :label="__('Email')" readonly/>
-                <x-input.textarea name="bio" placeholder="Your biography" maxlength="500" :label="__('Bio')">{{ old('bio', $user->bio) }}
+                <x-input.textarea name="bio" :placeholder="__('profile.bio_placeholder')" maxlength="500" :label="__('profile.bio_label')">{{ old('bio', $user->bio) }}
                 </x-input.textarea>
 
                 @if(session('errorMessage'))
@@ -96,15 +96,15 @@
                 @endif
 
                 <div>
-                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Change your password</h2>
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ __('profile.change_your_password') }}</h2>
                 </div>
-                <x-input password name="password" placeholder="Your password" profile_page :label="__('Password')"/>
-                <x-input password name="new_password" placeholder="New Password" profile_page :label="__('New Password')"/>
 
-                <x-input password name="new_password_confirmation" placeholder="Confirm your new Password" profile_page :label="__('New Password Confirmation')"/>
+                <x-input password name="password" :placeholder="__('profile.password_placeholder')" profile_page :label="__('profile.password_label')"/>
+                <x-input password name="new_password" :placeholder="__('profile.new_password_placeholder')" profile_page :label="__('profile.new_password_label')"/>
+                <x-input password name="new_password_confirmation" :placeholder="__('profile.new_password_confirmation_placeholder')" profile_page :label="__('profile.new_password_confirmation_label')"/>
                 
                 <div class="w-full text-right">
-                    <x-button default>Update</x-button>
+                    <x-button default>{{ __('profile.button_submit') }}</x-button>
                 </div>
             </x-form>
         </div>{{-- Profile Update Form --}}
