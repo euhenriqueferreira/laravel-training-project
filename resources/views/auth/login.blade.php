@@ -8,14 +8,12 @@
             <x-input name="email" :placeholder="__('auth.email_placeholder')" :value="old('email')" />
             <x-input password name="password" :placeholder="__('auth.password_placeholder')" />
 
-            {{-- Error message for invalid credentials --}}
             @if(session('errorMessage'))
-                <p class="block text-gray-900 dark:text-white text-sm text-left">{{ session('errorMessage') }}</p>
+                <x-alert danger>{{ session()->get('errorMessage') }}</x-alert>
             @endif
-
-            {{-- Status for reset password (DONT REMOVE) --}}
+            
             @if(session('status'))
-                <p class="block text-green-600 dark:text-green-400 text-sm">{{ session('status') }}</p>
+                <x-alert success>{{ session()->get('status') }}</x-alert>
             @endif
 
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-x-6 gap-y-1">

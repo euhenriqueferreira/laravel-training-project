@@ -9,7 +9,7 @@
     <div class="w-full">
         <textarea id="{{ $name }}" name="{{ $name }}" placeholder="{{ $placeholder }}" {{ $attributes }} 
         @class([
-            "w-full resize-y bg-transparent min-h-24 max-h-56 pl-2 pt-2 border-2 border-gray-400 rounded-md text-gray-900 dark:text-white"
+            "w-full resize-none bg-transparent min-h-32 max-h-56 pl-2 pt-2 border-2 border-gray-400 rounded-md text-gray-900 dark:text-white"
         ])
         >{{ $slot }}</textarea>
 
